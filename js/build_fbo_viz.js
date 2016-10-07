@@ -3,7 +3,7 @@
 //Read local api key file, store in variable
 //Used synchronous request, since it's a small local file
 var xmlhttp = new XMLHttpRequest;
-xmlhttp.open("GET","api.data.gov.key.txt",false);
+xmlhttp.open("GET","https://github.com/pviechnicki/fboviz/blob/gh-pages/api.data.gov.key.txt",false);
 xmlhttp.send();
 myKey = xmlhttp.responseText.replace(/\s+$/g, '');
 
