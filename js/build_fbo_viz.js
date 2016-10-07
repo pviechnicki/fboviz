@@ -2,10 +2,13 @@
 
 //Read local api key file, store in variable
 //Used synchronous request, since it's a small local file
-var xmlhttp = new XMLHttpRequest;
-xmlhttp.open("GET","https://github.com/pviechnicki/fboviz/blob/gh-pages/api.data.gov.key.txt",false);
-xmlhttp.send();
-myKey = xmlhttp.responseText.replace(/\s+$/g, '');
+//var xmlhttp = new XMLHttpRequest;
+//xmlhttp.open("GET","https://github.com/pviechnicki/fboviz/blob/gh-pages/api.data.gov.key.txt",false);
+//xmlhttp.send();
+//myKey = xmlhttp.responseText.replace(/\s+$/g, '');
+
+//Would be better to figure out a way to have individual users use their own keys
+var myKey = "S5y3cV2CbjFclfTKEBJuA3m8gDJvrOkZH1wXKk5a";
 
 //URL for fbopen api call
 var dataURL = "https://api.data.gov/gsa/fbopen/v0/opps?api_key=" + myKey + "&q=notice_type:\"COMBINE\"&show_closed=true&limit=500";
@@ -19,12 +22,6 @@ var filteredFBOData; //holds subset of detail data for table
 var fboPSCCounts; //Will hold counts of each category of solicitation
 var fboAgencyCounts; //Will hold counts of solicitations per agency
 
-var fakeData =  [
-	{"FBO_CLASSCOD":"70", "agency":"AAA"},
-	{"FBO_CLASSCOD":"80", "agency":"BBB"},
-	{"FBO_CLASSCOD":"90", "agency":"AAA"},
-	{"FBO_CLASSCOD":"100", "agency":"AAA"}
-    ];
 
 getJSON(dataURL).then(function(response) {
 
