@@ -175,13 +175,33 @@ function filter(inputData, field, value)
 /*------------------------------------------------------------*/
 /* Switch detailed data in table according to new PSC code    */
 /*------------------------------------------------------------*/
-function switchTableData(value, tableHandle)
+function switchTableData(field, value, tableHandle)
 {
     var tempData = [];
-    tempData = filter(fboData, "FBO_CLASSCOD", value);
+    tempData = filter(fboData, field, value);
     filteredFBOData = tempData;
     tableHandle.data('dynatable').settings.dataset.records = filteredFBOData;
     tableHandle.data('dynatable').settings.dataset.perPageDefault = 3;
     tableHandle.data('dynatable').dom.update();
 
 }
+
+/*----------------------------------------------------------------*/
+/* Switch bottom detail table to records grouped by psc or agency */
+/*----------------------------------------------------------------*/
+function switchTableType(value)
+{
+    if (value == "psc")
+    {
+	tableType = "psc"; //Switch value of global variable
+	switchTableData("FBO_CLASSCOD", "70", tableHandle);
+	//Defaults to product code 70 until you click on something
+    }
+    else if (value == "agency")
+    {
+	tableType = "agency"; //Switch value of global variable
+	switchTableData("agency", "Department of Justice", tableHandle);
+	//Defaults to DoJ until you click a square
+    }
+}
+
