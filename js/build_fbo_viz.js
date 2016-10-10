@@ -2,18 +2,9 @@
 /* Build a treemap of the fbo data                                     */
 /*---------------------------------------------------------------------*/
 
-<<<<<<< HEAD
-//Read local api key file, store in variable
-//Used synchronous request, since it's a small local file
-//var xmlhttp = new XMLHttpRequest;
-//xmlhttp.open("GET","https://github.com/pviechnicki/fboviz/blob/gh-pages/api.data.gov.key.txt",false);
-//xmlhttp.send();
-//myKey = xmlhttp.responseText.replace(/\s+$/g, '');
-=======
 /*---------------------------------------------------------------------*/
 /* Global variables                                                    */
 /*---------------------------------------------------------------------*/
->>>>>>> master
 
 //Would be better to figure out a way to have individual users use their own keys
 var myKey = "S5y3cV2CbjFclfTKEBJuA3m8gDJvrOkZH1wXKk5a";
@@ -30,14 +21,11 @@ var filteredFBOData; //holds subset of detail data for table
 var fboPSCCounts; //Will hold counts of each category of solicitation
 var fboAgencyCounts; //Will hold counts of solicitations per agency
 
-<<<<<<< HEAD
-=======
 var tableType= "psc"; //Switch for how the detail records are grouped
 
 /*---------------------------------------------------------------------*/
 /* Main functionality.                                                 */
 /*---------------------------------------------------------------------*/
->>>>>>> master
 
 getJSON(dataURL).then(function(response) {
 
