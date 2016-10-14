@@ -23,14 +23,18 @@ print(foundRows)
 iterations = round(foundRows/limit_val) + 1
 numGets = 0
 numGets += 1 
+##numGets tracks how many times you are requesting data.  
+##Site says limit is 50 per day, but I hit no such limitation
+
 FBO_CSV = open('C:\FBOagile\FBOtest.csv', 'w', newline = '')
+##Need to create a folder called FBOagile and make it writable.
 ##
 csvwriter = csv.writer(FBO_CSV, delimiter = '|')
 csvwriter.writerow(['title', 'solicitationNumber', 'agency', 'office', 'postedDate', 'synopsis', 'url'])
 while run_count <= iterations:
     fbo_output = site + api_key + query + show_closed + limit + str(limit_val) + start + str(start_val)
-    print(fbo_output)
-    print()
+    ##print(fbo_output)
+    ##print()
     FBO = requests.get(fbo_output)
     FBO_Parsed = json.loads(FBO.text)
     FBO_Details = FBO_Parsed['docs']
