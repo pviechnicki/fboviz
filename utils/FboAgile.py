@@ -19,7 +19,7 @@ fbo_getCount = site + api_key + query + show_closed + limit + str(0) + start + s
 getCount = requests.get(fbo_getCount)
 getCount_Parsed = json.loads(getCount.text)
 foundRows = getCount_Parsed['numFound']
-print(foundRows)
+##print(foundRows)
 iterations = round(foundRows/limit_val) + 1
 numGets = 0
 numGets += 1 
