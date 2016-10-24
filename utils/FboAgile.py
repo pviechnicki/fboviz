@@ -44,10 +44,11 @@ while run_count <= iterations:
         agency = doc['agency']
         office = doc['office']
         postDate = datetime.strptime(doc['posted_dt'], '%Y-%m-%dT%H:%M:%SZ')
-        desc =  doc.get('description', 'null').encode('utf-8')
+        ##desc =  doc.get('description', 'null').encode('utf-8')
+        ##Removing 'synopsis'
         url = doc['listing_url'].encode('utf-8')
         if postDate >= targetDate:
-            csvwriter.writerow([title,solnbr,agency,office,postDate,desc,url])
+            csvwriter.writerow([title,solnbr,agency,office,postDate,url])##desc,url])
     start_val += limit_val
     numGets += 1
     run_count += 1
